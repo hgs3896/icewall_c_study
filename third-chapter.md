@@ -7,90 +7,27 @@
 우선 정수형 데이터들 부터!
 
 ```
+#include <stdio.h>
 
 
-```
-
-```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
+int main(void)
 {
-    
-int
- a=
--5
-, b=
-23
-, c=
-5376
-;
-    
-long
- d=
-325678
-;
-    
-printf
-(
-"정수형숫자format\n"
-);
-    
-printf
-(
-" 1. a=%d\n"
-, a);
-    
-printf
-(
-" 2. a=%6d\n"
-, a); 
-// 오른쪽맞춤
-printf
-(
-" 3. a=%06d\n"
-, a); 
-// 오른쪽맞춤
-printf
-(
-" 4. b=%6d\n"
-, b);
-    
-printf
-(
-" 5. b=%+6d\n"
-, b); 
-// 부호표시
-printf
-(
-" 6. c=%6d\n"
-, c);
-    
-printf
-(
-" 7. c=%-6d\n"
-, c); 
-// 왼쪽맞춤
-printf
-(
-" 8. d=%6ld\n"
-, d); 
-// 오른쪽맞춤
-return
-0
-;
+    int a=-5, b=23, c=5376;
+    long d=325678;
+    printf("정수형숫자format\n");
+    printf(" 1. a=%d\n", a);
+    printf(" 2. a=%6d\n", a); // 오른쪽맞춤
+    printf(" 3. a=%06d\n", a); // 오른쪽맞춤
+    printf(" 4. b=%6d\n", b);
+    printf(" 5. b=%+6d\n", b); // 부호표시
+    printf(" 6. c=%6d\n", c);
+    printf(" 7. c=%-6d\n", c); // 왼쪽맞춤
+    printf(" 8. d=%6ld\n", d); // 오른쪽맞춤
+    return 0;
 }
-
 ```
 
-# ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E3%85%81%E3%84%B4.png)
+# ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/ㅁㄴ.png)
 
 정수형 숫자에 대해 자릿수를 맞추어 출력할 수 있다. %ⓝd 같은 형식으로 사용을하고 ⓝ은 출력할 전체 자릿수를 의미한다.
 
@@ -113,80 +50,23 @@ return
 %ⓝ.ⓓd 의 형식으로 출력할 수 있구 ⓝ은 소숫점을 포함하여 출력할 전체 자릿수 ⓓ는 소숫점 이하 자릿수를 의미한다.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-float
- a=
--437.46
-, b=
-1278.9
-;
-    
-double
- c=
-5.567
-;
-    
-printf
-(
-"실수형숫자format \n"
-);
-    
-printf
-(
-" 1. a=%8.3f\n"
-, a);
-    
-printf
-(
-" 2. b=%8.3f\n"
-, b); 
-// 오른쪽맞춤
-printf
-(
-" 3. c=%-8.3f\n"
-, c); 
-// 왼쪽 맞춤
-printf
-(
-" 4. c=%8.f\n"
-, c); 
-// 오른쪽맞춤
-printf
-(
-" 5. c=%8.1f\n"
-, c);
-    
-printf
-(
-" 6. c=%.2f\n"
-, c);
-    
-printf
-(
-" 7. a=%+.2f\n"
-, a);
-    
-printf
-(
-" 8. b=%+.2f\n "
-, b); 
-// 부호표시
-return
-0
-;
-}
+#include <stdio.h>
 
+int main(void)
+{
+    float a=-437.46, b=1278.9;
+    double c=5.567;
+    printf("실수형숫자format \n");
+    printf(" 1. a=%8.3f\n", a);
+    printf(" 2. b=%8.3f\n", b); // 오른쪽맞춤
+    printf(" 3. c=%-8.3f\n", c); // 왼쪽 맞춤
+    printf(" 4. c=%8.f\n", c); // 오른쪽맞춤
+    printf(" 5. c=%8.1f\n", c);
+    printf(" 6. c=%.2f\n", c);
+    printf(" 7. a=%+.2f\n", a);
+    printf(" 8. b=%+.2f\n ", b); // 부호표시
+    return 0;
+}
 ```
 
 ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/36068914-c5e0-4c9e-bc50-6a73fb0b56f7.png)
@@ -210,67 +90,22 @@ return
 어떤 형식으로 작성해야 하는지는 예제를 보며 알아보자.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- num1, num2;
-    
-scanf
-(
-"%d %d"
-,
-&
-num1, 
-&
-num2);
+#include<stdio.h>
 
-    
-if
-(num1 
->
- num2) {
-        
-printf
-(
-"num1 이 더 크다!\n"
-);
-    } 
-else
-if
-(num1 
-<
- num2){
-        
-printf
-(
-"num2 가 더 크다!\n"
-);
-    } 
-else
- {
-        
-printf
-(
-"num1과 num2가 같다!\n"
-);
+int main(void) {
+    int num1, num2;
+    scanf("%d %d",&num1, &num2);
+
+    if(num1 > num2) {
+        printf("num1 이 더 크다!\n");
+    } else if(num1 < num2){
+        printf("num2 가 더 크다!\n");
+    } else {
+        printf("num1과 num2가 같다!\n");
     }
 
-    
-return
-0
-;
+    return 0;
 }
-
 ```
 
 기본적인 형태는
@@ -279,7 +114,6 @@ if\( 참, 거짓을 판단할 수 있는 조건 \) {
 
 ```
    조건이 참일 경우 실행할 구문.
-
 ```
 
 }
@@ -325,141 +159,46 @@ _}_
 이번에도 예제를 통해 사용법을 알아보자.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-( 
-void
- )
-{
-    
-int
- num1 = 
-0
-;
-    
-int
- num2 = 
-0
-;
-    
-int
- value = 
-0
-;
-    
-char
- op;
+#include<stdio.h>
+int main( void ){
+    int num1 = 0;
+    int num2 = 0;
+    int value = 0;
+    char op;
 
-    
-printf
-( 
-"수식을 입력하시오 : "
- );
-    
-scanf
-( 
-"%d %c %d"
-, 
-&
-num1, 
-&
-op, 
-&
-num2 );
+    printf( "수식을 입력하시오 : " );
+    scanf( "%d %c %d", &num1, &op, &num2 );
 
-    
-switch
-(op){  
-//char a의 값에 따라서 case를 설정
-case
-'+'
-: 
-//char a의 값이 +일경우 +연산을 한다.
-
+    switch(op){  //char a의 값에 따라서 case를 설정
+    case '+': //char a의 값이 +일경우 +연산을 한다.
         value = num1 + num2;
-        
-printf
-( 
-"%d %c %d = %d"
-, num1, op, num2, value );
-        
-break
-;
-    
-case
-'-'
-: 
-//char a의 값이 -일경우 -연산을 한다.
-
+        printf( "%d %c %d = %d", num1, op, num2, value );
+        break;
+    case '-': //char a의 값이 -일경우 -연산을 한다.
         value = num1 - num2;
-        
-printf
-( 
-"%d %c %d = %d"
-, num1, op, num2, value );
-        
-break
-;
-    
-case
-'*'
-:  
-//char a의 값이 *일경우 *연산을 한다.
-
+        printf( "%d %c %d = %d", num1, op, num2, value );
+        break;
+    case '*':  //char a의 값이 *일경우 *연산을 한다.
         value = num1 * num2;
-        
-printf
-( 
-"%d %c %d = %d"
-, num1, op, num2, value );
-        
-break
-;
-    
-case
-'/'
-:  
-//char a의 값이 /일경우 /연산을 한다.
-printf
-( 
-"%d %c %d = %lf"
-, num1, op, num2, (
-double
-)num1/num2 );
-        
-break
-;
-    
-default
-:
-        
-printf
-( 
-"계산할 수 없음"
- );
-        
-break
-;
+        printf( "%d %c %d = %d", num1, op, num2, value );
+        break;
+    case '/':  //char a의 값이 /일경우 /연산을 한다.
+        printf( "%d %c %d = %lf", num1, op, num2, (double)num1/num2 );
+        break;
+    default:
+        printf( "계산할 수 없음" );
+        break;
     }
 
-    
-return
-0
-;
+    return 0;
 }
-
 ```
 
 위의 코드는 간단한 사칙연산 계산기 코드이다.
 
 ###### 실행화면은 다음과 같다. {#실행화면은-다음과-같다}
 
-###### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-04-04%20%EC%98%A4%EC%A0%84%2012.48.25.png)
+###### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-04-04 오전 12.48.25.png)
 
 switch case는
 
@@ -473,7 +212,7 @@ switch\(변수\) &lt;- 요기에 들어가는 변수의 값에 따라 case를 �
 
 만약 내가 \*의 case 구문에서 break를 뺀다면,
 
-###### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-04-04%20%EC%98%A4%EC%A0%84%201.02.50.png)
+###### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-04-04 오전 1.02.50.png)
 
 이런 이상한 결과가 나오게 된다. break로 빠져나가질 못했으니, 나누기 연산 까지 실행한다. operator 의 값은 그대로이니까
 
@@ -489,7 +228,7 @@ switch\(변수\) &lt;- 요기에 들어가는 변수의 값에 따라 case를 �
 
 이제, 마지막으로 지난 시간에 배운 기본 연산자에 이어 추가적으로 기타 연산자들을 배워보자.
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-04-04%20%EC%98%A4%EC%A0%84%201.11.51.png)&lt; 부터 &gt;= 까지는 표를 읽고 이해할 수 있을거라 생각하고 넘어간다.
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-04-04 오전 1.11.51.png)&lt; 부터 &gt;= 까지는 표를 읽고 이해할 수 있을거라 생각하고 넘어간다.
 
 ###### 
 
@@ -502,13 +241,9 @@ switch\(변수\) &lt;- 요기에 들어가는 변수의 값에 따라 case를 �
 1. &&연산자 : 예\) a==1 &&b==2 // A = 1 , B = 2
 
    ```
-   결과) 1  
-   &
-   &
-    연산자는 두개의 조건을 모두 만족을 해야 1\(True\) 이 반환됨
+   결과) 1  && 연산자는 두개의 조건을 모두 만족을 해야 1\(True\) 이 반환됨
 
    해석) a가 1 이고, b가 2 면 1\(true\)
-
    ```
 
 2. \|\| 연산자 : 예\) a==10 \|\| b==90 // A = 10 , B = 20
@@ -517,7 +252,6 @@ switch\(변수\) &lt;- 요기에 들어가는 변수의 값에 따라 case를 �
    결과) 1 || 연산자는 두개의 조건중 한가지라도 만족이 되면 1(True) 이 반환됨
 
    해석) a가 10 이거나, b가 90 이면 1\(true\)
-
    ```
 
 3. ! 연산자 : 예\) !a A = 1;
@@ -526,7 +260,6 @@ switch\(변수\) &lt;- 요기에 들어가는 변수의 값에 따라 case를 �
    결과) 0  1(True) 이므로, 0\(False\) 반환됨.
 
    해석) a값이 true면 false를 반환하고 false 이면 true를 반환 !(not)연산자
-
    ```
 
 ##### 
@@ -557,58 +290,27 @@ int res = num1&num2;
 
 ```
   00000000000000000000000000001001
-
-&
- 00000000000000000000000000000100
+& 00000000000000000000000000000100
 = 00000000000000000000000000000000
-
 ```
 
 이렇게 하면 res에는 0 값이 들어갈 것 이다.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- num1 = 
-9
-;
-    
-int
- num2 = 
-4
-;
-    
-int
- res = num1 
-&
- num2 ;
-    
-printf
-(
-"%d\n"
-,res);
-    
-return
-0
-;
-}
+#include<stdio.h>
 
+int main(void) {
+    int num1 = 9;
+    int num2 = 4;
+    int res = num1 & num2 ;
+    printf("%d\n",res);
+    return 0;
+}
 ```
 
 위 코드를 실해하면, 다음과 같이 실행결과를 확인할 수 있다.
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-04-04%20%EC%98%A4%EC%A0%84%201.55.41.png)
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-04-04 오전 1.55.41.png)
 
 ##### 
 
@@ -620,7 +322,6 @@ return
   00000000000000000000000000001001
 | 00000000000000000000000000000100
 = 00000000000000000000000000001101
-
 ```
 
 ###### 
@@ -631,7 +332,6 @@ return
   00000000000000000000000000001001
                  ! 
 = 11111111111111111111111111110110
-
 ```
 
 ###### 
@@ -642,7 +342,6 @@ return
   00000000000000000000000000001001
 ^ 00000000000000000000000000000100
 = 00000000000000000000000000001101
-
 ```
 
 ###### 
@@ -659,72 +358,30 @@ return
 
 ```
     00000000000000000000000000001001
-                  
-<
-<
-2 
+                  <<2 
 =   00000000000000000000000000100100
-
 ```
 
 시프트 연산 예제 코드
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- num1 = 
-9
-;
-    
-int
- num2 = 
-4
-;
-    
-int
- res1 = num1 
-<
-<
-1
-;
-    
-int
- res2 = num2 
->
->
-2
-;
-    
-printf
-(
-"%d %d\n"
-,res1, res2);
-    
-return
-0
-;
-}
+#include<stdio.h>
 
+int main(void) {
+    int num1 = 9;
+    int num2 = 4;
+    int res1 = num1 << 1;
+    int res2 = num2 >> 2;
+    printf("%d %d\n",res1, res2);
+    return 0;
+}
 ```
 
 위 코드를 실행하면, 아래와 같은 결과를 확인할 수 있다.
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-04-04%20%EC%98%A4%EC%A0%84%202.19.54.png)
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-04-04 오전 2.19.54.png)
 
 ###### 
 
 수업 끝 ㅇ&lt;-&lt; ..... \(작성자의 온기가 남아있는 글입니다...\)
-
-
 

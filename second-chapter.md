@@ -55,36 +55,16 @@ char에 할당된는 메모리 크기는 1byte이다. 1byte는 8bit이다. 1bit�
 
 **이제 자료형에 맞춰 printf로 변수를 출력하는 법을 알아보자.**
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%9E%90%EB%A3%8C%ED%98%95.JPG)
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/자료형.JPG)
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- num = 
-10
-;
-    
-printf
-(
-"I have %d apples\n"
-,num);
-    
-return
-0
-;
-}
+#include<stdio.h>
 
+int main(void) {
+    int num = 10;
+    printf("I have %d apples\n",num);
+    return 0;
+}
 ```
 
 이런 예제 코드를 실행 하면, 실행 창에 I have 10 apples 라는 문장이 나타난다. 나는 int형 변수 num을 출력할 것이기 때문에 그에 해당하는
@@ -104,43 +84,15 @@ return
 만약 내가 int형 으로 숫자를 입력 받고 싶다면,
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- age;
-    
-printf
-(
-"How old are you?\n"
-);
-    
-scanf
-(
-"%d"
-,
-&
-age);
-    
-printf
-(
-"I'm %d years old.\n"
-,age);
-    
-return
-0
-;
-}
+#include<stdio.h>
 
+int main(void) {
+    int age;
+    printf("How old are you?\n");
+    scanf("%d",&age);
+    printf("I'm %d years old.\n",age);
+    return 0;
+}
 ```
 
 위와 같은 형식으로 입력을 받을 수 있다.
@@ -161,7 +113,7 @@ printf와 크게 다르지 않다. 똑같이 int형 변수 age의 값을 입력�
 
 즉 &age이것은 age라는 변수의 주솟값을 의미하는 것이다.
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%97%B0%EC%82%B0%EC%9E%90.png)
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/연산자.png)
 
 프로그래밍에서의 기본 연산자도 수학에서의 연산자와 크게 다르지 않다.
 

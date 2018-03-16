@@ -1,7 +1,5 @@
 # 8 주차
 
-
-
 8주차 : 구조체, 지금까지 내용 복습, 복합 과제 \(기한 일주일\)
 
 **구조체란?**
@@ -13,26 +11,22 @@
 c언어 에서는 구조체를 struct를 사용하여 표현한다.
 
 ```
-struct
- person{        
-    
-char
- *name;            
-    
-int
- age;
-    
-float
- height;
+struct person{
+    char *name;
+    int age;
+    float height;
 };
-
 ```
 
 위와 같이 구조체의 형식이 정의한 다음 구조체 변수는 다음과 같이 생성한다.
 
+
+
 sturct 구조체명 변수명;
 
 **struct person p;**
+
+
 
 와 같이 a 구조체 변수를 만들고 나면,
 
@@ -52,17 +46,16 @@ typedef\(type define\) : 형을 정의한다는 것을 의미한다.
 typedef
 struct
  person{        
-    
+
 char
  *name;            
-    
+
 int
  age;
-    
+
 float
  height;
 }person;
-
 ```
 
 이렇게 typedef로 정의하고 난 뒤에는
@@ -80,13 +73,13 @@ stdio.h
 typedef
 struct
  student {
-  
+
 int
  id;
-  
+
 char
  *name;
-  
+
 float
  percentage;
 }student; 
@@ -105,27 +98,26 @@ main
   s.percentage = 
 90.5
 ;
-  
+
 printf
 (
 "아이디: %d \n"
 , s.id);
-  
+
 printf
 (
 "이름: %s \n"
 , s.name);
-  
+
 printf
 (
 "백분율: %f \n"
 , s.percentage);
-  
+
 return
 0
 ;
 }
-
 ```
 
 위의 코드는 구조체를 만든후 구조체 변수 s를 초기화 한 뒤 출력한 예제이다.
@@ -140,7 +132,6 @@ student s = {
 ,
 90.5
 };
-
 ```
 
 이렇게 간단하게 해도 된다.
@@ -158,13 +149,13 @@ stdio.h
 typedef
 struct
  student {
-  
+
 int
  id;
-  
+
 char
  *name;
-  
+
 float
  percentage;
 }student; 
@@ -193,7 +184,7 @@ name =
 percentage =
 90.5
 ;
-  
+
 printf
 (
 "직원 안내: 아이디=%d\n%s\n%f\n"
@@ -205,12 +196,11 @@ name,
   stptr-
 >
 percentage);
-  
+
 return
 0
 ;
 }
-
 ```
 
 구조체를 가리키는 포인터로 구조체 변수에 접근하고 싶을 때는**.**대신에**-&gt;**를 이용해 접근한다.
@@ -233,9 +223,7 @@ character라는 구조체를 만들고 x,y 값을 입력 받으면 character 구
 
 무한 루프로 계속 입력을 받으면서 캐릭터의 움직임을 보여주고, x나 y값에 에 음수가 입력되면, 프로그램을 종료한다. 이 같은 프로그램을 작성하시오. \(구조체 포인터로 구현해주세요!\)
 
-###### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202017-05-29%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.02.25.png)
+###### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-05-29 오후 5.02.25.png)
 
 -&gt; 이 과제는 필수이니 모두 저한테 개인적으로 제출하시기 바랍니다!
-
-
 

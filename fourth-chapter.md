@@ -7,56 +7,18 @@
 만약 숫자를 입력 받고, 입력 받은 숫자가 3의 배수인지 확인하려면 어떻게 해야할까?
 
 ```
-#
-```
+#include <stdio.h>
 
-```
-include
-<
-stdio.h
->
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
-    
-int
- number;
-    
-scanf
-(
-"%d"
-, 
-&
-number);
-    
-if
- (number % 
-3
- == 
-0
-) {
-        
-printf
-(
-"3의 배수다.\n"
-);
+int main(int argc, char * argv[]) {
+    int number;
+    scanf("%d", &number);
+    if (number % 3 == 0) {
+        printf("3의 배수다.\n");
     }
-    
-else
- {
-        
-printf
-(
-"3의 배수가 아니다.\n"
-);
+    else {
+        printf("3의 배수가 아니다.\n");
     }
 }
-
 ```
 
 ###### 
@@ -68,173 +30,50 @@ printf
 ###### 
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
-    
-int
- number;
-    
-scanf
-(
-"%d"
-, 
-&
-number);
-    
-if
- (number % 
-3
- == 
-0
-) {
-        
-printf
-(
-"3의 배수다.\n"
-);
+#include <stdio.h>
+
+int main(int argc, char * argv[]) {
+    int number;
+    scanf("%d", &number);
+    if (number % 3 == 0) {
+        printf("3의 배수다.\n");
     }
-    
-else
- {
-        
-printf
-(
-"3의 배수가 아니다.\n"
-);
+    else {
+        printf("3의 배수가 아니다.\n");
     }
 
-    
-scanf
-(
-"%d"
-, 
-&
-number);
-    
-if
- (number % 
-3
- == 
-0
-) {
-        
-printf
-(
-"3의 배수다.\n"
-);
+    scanf("%d", &number);
+    if (number % 3 == 0) {
+        printf("3의 배수다.\n");
     }
-    
-else
- {
-        
-printf
-(
-"3의 배수가 아니다.\n"
-);
+    else {
+        printf("3의 배수가 아니다.\n");
     }
 
-    
-scanf
-(
-"%d"
-, 
-&
-number);
-    
-if
- (number % 
-3
- == 
-0
-) {
-        
-printf
-(
-"3의 배수다.\n"
-);
+    scanf("%d", &number);
+    if (number % 3 == 0) {
+        printf("3의 배수다.\n");
     }
-    
-else
- {
-        
-printf
-(
-"3의 배수가 아니다.\n"
-);
+    else {
+        printf("3의 배수가 아니다.\n");
     }
 
-    
-scanf
-(
-"%d"
-, 
-&
-number);
-    
-if
- (number % 
-3
- == 
-0
-) {
-        
-printf
-(
-"3의 배수다.\n"
-);
+    scanf("%d", &number);
+    if (number % 3 == 0) {
+        printf("3의 배수다.\n");
     }
-    
-else
- {
-        
-printf
-(
-"3의 배수가 아니다.\n"
-);
+    else {
+        printf("3의 배수가 아니다.\n");
     }
 
-    
-scanf
-(
-"%d"
-, 
-&
-number);
-    
-if
- (number % 
-3
- == 
-0
-) {
-        
-printf
-(
-"3의 배수다.\n"
-);
+    scanf("%d", &number);
+    if (number % 3 == 0) {
+        printf("3의 배수다.\n");
     }
-    
-else
- {
-        
-printf
-(
-"3의 배수가 아니다.\n"
-);
+    else {
+        printf("3의 배수가 아니다.\n");
     }
 }
-
 ```
 
 이렇게 반복되는 코드들을 계속 쓴다면, 가독성이 떨어지고 코드 길이가 늘어나면서 어떻게 작동하는지 알기 어렵다.
@@ -249,7 +88,6 @@ for\(init-expression; condition-expression; loop-expression\){
 
 ```
 statement;
-
 ```
 
 }
@@ -272,69 +110,22 @@ statement;
 글만 봐서는 제대로 이해하기 힘들다. 예제를 보면서 이해해보자.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
-    
-int
- number;
-    
-int
- i;
-    
-for
- (i = 
-0
-; i 
-<
-5
-; i++) {
-        
-scanf
-(
-"%d"
-, 
-&
-number);
-        
-if
- (number % 
-3
- == 
-0
-) {
-            
-printf
-(
-"3의 배수다.\n"
-);
+#include <stdio.h>
+
+int main(int argc, char * argv[]) {
+    int number;
+    int i;
+    for (i = 0; i < 5; i++) {
+        scanf("%d", &number);
+        if (number % 3 == 0) {
+            printf("3의 배수다.\n");
         }
-        
-else
- {
-            
-printf
-(
-"3의 배수가 아니다.\n"
-);
+        else {
+            printf("3의 배수가 아니다.\n");
         }
     }
-
-return
-0
-;
+    return 0;
 }
-
 ```
 
 제일 처음에 i를 0으로 초기화 한 후에, i는 5보다 작으므로 {}안에 있는 코드들을 실행하게 된다. number에 값을 입력 받고, 3의 배수인지 아닌지 판별하여 출력한 후에, i++을 실행한다.
@@ -348,44 +139,15 @@ for문을 쓰지 않을 때보다 훨씬 간결하지 않은가? 반복적으로
 아래는 2단을 출력하는 예제이다.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
-    
-int
- number = 
-2
-;
-    
-int
- i;
-    
-for
- (i = 
-1
-; i 
-<
-= 
-9
-; i++) {
-        
-printf
-(
-"%d x %d = %d\n"
-, number, i, number*i);
+#include <stdio.h>
+
+int main(int argc, char * argv[]) {
+    int number = 2;
+    int i;
+    for (i = 1; i <= 9; i++) {
+        printf("%d x %d = %d\n", number, i, number*i);
     }
 }
-
 ```
 
 그렇다면 9단까지 출력하려면 어떻게 해야할까? 위 반복문을 9번 반복하기 위해 9번 복사 붙여넣기를 할 것인가?
@@ -393,49 +155,16 @@ printf
 for문 안에 for문을 넣을 수 있다. 이런걸**이중 for문**이라고 한다. 예제를 보자.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
-    
-int
- dan, i;
-    
-for
- (dan = 
-2
-; dan 
-<
-= 
-9
-; dan++) {
-        
-for
- (i = 
-1
-; i 
-<
-= 
-9
-; i++) {
-            
-printf
-(
-"%d x %d = %d\n"
-, dan, i, dan*i);
+#include <stdio.h>
+
+int main(int argc, char * argv[]) {
+    int dan, i;
+    for (dan = 2; dan <= 9; dan++) {
+        for (i = 1; i <= 9; i++) {
+            printf("%d x %d = %d\n", dan, i, dan*i);
         }
     }
 }
-
 ```
 
 for문이 2개가 되었다. i를 기준으로 도는 for문이 있고, dan을 기준으로 도는 for문이 있다. 실행 순서는
@@ -467,24 +196,14 @@ for문을 중첩해서 쓰는 경우는 흔하지만, 너무 많이 중첩할 �
 ###### 추가로 while문에 대해 알아보자. {#추가로-while문에-대해-알아보자}
 
 ```
-int
- i=
-0
-;
-
-while
- (condition-expression){ 
-// 종결조건
-
+int i=0;
+while (condition-expression){ // 종결조건
 
     statement!
 
-    i++;               
-// loop-expression, i 값을 증가시킨다.
-
+    i++;               // loop-expression, i 값을 증가시킨다.
 
 }
-
 ```
 
 for문과 다르게,변수의 초기화와,증감식이 괄호안에 따로 없다.
@@ -495,13 +214,9 @@ for문과 다르게,변수의 초기화와,증감식이 괄호안에 따로 없�
 
 ```
 do
-
 {
     statement;
-}
-while
-(condition-expression);
-
+}while(condition-expression);
 ```
 
 do while문은 조건을 while문의 파생버전이다. while문은 조건 확인 후 {}안의 statement를 실행한다. 하지만, do while문은 먼저 do {}안의 statement들을 실행한 후,그 다음부터 조건을 확인후 다시 do{}안의 실행문들을 실행할지 결정한다.
@@ -522,7 +237,6 @@ return\_type function\_name\(parameters\) {
 
 ```
     definition
-
 ```
 
 }
@@ -540,77 +254,28 @@ return\_type function\_name\(parameters\) { definition }
 역시 그냥 보면 이해하기 힘드니 예제를 보자.
 
 ```
-#
-include
-<
-stdio.h
->
-void
-gugudan
-(
-int
- dan)
-;
+#include <stdio.h>
+void gugudan(int dan);
+int isThreeMultiple(int number) {
+if (number % 3 == 0) {
 
-int
-isThreeMultiple
-(
-int
- number)
-{
-
-if
- (number % 
-3
- == 
-0
-) {
-
-    
-return
-1
-;
+    return 1;
 
 }
 
+else {
 
-else
- {
-
-        
-return
-0
-;
+        return 0;
 
     }
 }
 
+int main(int argc, char * argv[]) {
+    int dan;
 
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
-    
-int
- dan;
+    for (dan = 2; dan <= 9; dan++) {
 
-    
-for
- (dan = 
-2
-; dan 
-<
-= 
-9
-; dan++) {
-
-        
-if
- (isThreeMultiple(dan)) {
+        if (isThreeMultiple(dan)) {
 
             gugudan(dan);
 
@@ -618,36 +283,15 @@ if
 
     }
 }
+void gugudan(int dan) {
+    int i;
 
-void
-gugudan
-(
-int
- dan)
-{
-    
-int
- i;
+    for (i = 1; i <= 9; i++) {
 
-    
-for
- (i = 
-1
-; i 
-<
-= 
-9
-; i++) {
-
-        
-printf
-(
-"%d x %d = %d\n"
-, dan, i, dan*i);
+        printf("%d x %d = %d\n", dan, i, dan*i);
 
     }
 }
-
 ```
 
 3, 6, 9단만 출력하는 예제이다. return\_type은 함수가 종료된 후, 함수가 불러진 위치로 값을 전달하게 되는데 이때 전달되는 값의 type을 의미한다. void의 경우 return하는 값이 없고, int의 경우 int형의 값을 return한다.
@@ -665,75 +309,28 @@ function\_name은 함수 이름이다. 말 그대로 이름을 지어주면 된�
 예를 들어보자.
 
 ```
-#
-include
-<
-stdio.h
->
-int
- thisIsGlobal = 
-2
-;
+#include <stdio.h>
+int thisIsGlobal = 2;
+void function(int parameter) {
+int thisIsLocal2 = 20;
 
-void
-function
-(
-int
- parameter)
-{
+printf("%d is global variable\n", thisIsGlobal);
 
-int
- thisIsLocal2 = 
-20
-;
+printf("%d is parameter\n", parameter);
 
-
-printf
-(
-"%d is global variable\n"
-, thisIsGlobal);
-
-
-printf
-(
-"%d is parameter\n"
-, parameter);
-
-
-printf
-(
-"%d is local variable\n"
-, thisIsLocal2);
-
+printf("%d is local variable\n", thisIsLocal2);
 
 
 
 //printf("%d is local variable\n", thisIsLocal);
-
 }
-
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
-
-int
- thisIsLocal = 
-10
-;
+int main(int argc, char * argv[]) {
+int thisIsLocal = 10;
 
 function(thisIsLocal);
 
-
-return
-0
-;
+return 0;
 }
-
 ```
 
 모든 {} 밖에 있는 변수들은 전역변수라고 불리고, 같은 이름의 지역변수가 있지 않은 한, 모든 함수 내에서 사용할 수 있다. 위의 예제에서 thisIsGlobal이라는 이름의 전역변수가 있고, 이 전역변수는 function이라는 이름을 가진 함수 내에서 사용이 가능하다. {} 내부에 있는 변수들은 지역변수라고 불리고, 선언된 함수 내부에서만 쓸 수 있다. thisIsLocal은 main함수 에서 선언이 되었기 때문에 function에서 thisIsLocal 변수를 출력하려고 하면 에러가 나게 된다. 실험해 보고 싶다면 주석처리\(//\)를 지우고 컴파일 해보면 된다.
@@ -743,78 +340,29 @@ return
 함수에 대해 이해했다면 재귀에 대해서 이해하는 것도 필요하다. 재귀란 자기 자신을 호출하는 것을 말한다. 따라서 재귀 함수는 자기 자신을 호출하는 함수를 의미한다. 간단한 예시를 들어보면 이해가 빠를 것이다.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-factorial
-(
-int
- n)
-{
+#include <stdio.h>
+int factorial(int n) {
+if (n == 0) {
 
-if
- (n == 
-0
-) {
-
-    
-return
-1
-;
+    return 1;
 
 }
 
+else {
 
-else
- {
-
-    
-return
-n * 
-factorial
-(n - 
-1
-)
-;
+    return n * factorial(n - 1);
 
 }
 }
+int main(int argc, char * argv[]) {
+int number;
 
-int
-main
-(
-int
- argc, 
-char
- * argv[])
-{
+scanf("%d", &number);
 
-int
- number;
+printf("factorial result of %d : %d\n", number, factorial(number));
 
-
-scanf
-(
-"%d"
-, 
-&
-number);
-
-
-printf
-(
-"factorial result of %d : %d\n"
-, number, factorial(number));
-
-
-return
-0
-;
+return 0;
 }
-
 ```
 
 고등학교 때 배웠던 팩토리얼 연산을 코드로 옮겨 본 것이다.\(재귀 함수를 설명할 때 자주 등장하는 예시이다.\) 만약 4를 입력한다면 factorial\(4\)가 호출될 것이고, factorial\(4\)에서는 n이 0이 아니기 때문에 n \* factorial\(3\)을 연산하기 위해 factorial\(3\)을 호출할 것이다. 이 과정이 반복되는 것을 나타내 보면
@@ -838,6 +386,4 @@ If\(n == 0\) return 1; 과 같은 종결조건을 설정해주었다. 재귀 함
 재귀 함수는 반복문으로 대체 가능하다. for, while에 비해 오버헤드도 많다. 그러나 프로그래밍에서 사용되는 개념이기 때문에 알고 넘어가야 한다. 재귀함수가 활용되는 곳은 함수형 프로그래밍, DFS와 같은 알고리즘 등이 있다.
 
 여담으로 몇 가지를 더 설명하자면, static, 스택 프레임, call by value, call by reference가 있지만.. 포인터를 설명한 후에 듣는 것이 이해가 편하니 다음 주차에서 듣도록 하자. 먼저 궁금하다면 스터디를 진행하는 강사 혹은 조교에게 설명을 해 달라고 하면 된다.
-
-
 

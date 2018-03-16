@@ -20,13 +20,9 @@ struct person{
 
 위와 같이 구조체의 형식이 정의한 다음 구조체 변수는 다음과 같이 생성한다.
 
-
-
 sturct 구조체명 변수명;
 
 **struct person p;**
-
-
 
 와 같이 a 구조체 변수를 만들고 나면,
 
@@ -43,18 +39,10 @@ typedef\(type define\) : 형을 정의한다는 것을 의미한다.
 예를 들어 typedef int element;라고 정의한다면, int 를 element라고 정의해서 int 대신 element 를 써도 되는 것이다.
 
 ```
-typedef
-struct
- person{        
-
-char
- *name;            
-
-int
- age;
-
-float
- height;
+typedef struct person{        
+    char *name;            
+    int age;
+    float height;
 }person;
 ```
 
@@ -65,58 +53,23 @@ person p; 이런식으로 구조체 변수를 선언할 수 있다.
 간단한 예제를 실행해보자.
 
 ```
-#
-include
-<
-stdio.h
->
-typedef
-struct
- student {
+#include <stdio.h>
 
-int
- id;
+typedef struct student {
+  int id;
+  char *name;
+  float percentage;
+}student; // 구조체 뒤에 세미콜론이 와야함
 
-char
- *name;
-
-float
- percentage;
-}student; 
-// 구조체 뒤에 세미콜론이 와야함
-int
-main
-()
-{
+int main() {
   student s;
-  s.id=
-1
-;
-  s.name = 
-"김철수"
-;
-  s.percentage = 
-90.5
-;
-
-printf
-(
-"아이디: %d \n"
-, s.id);
-
-printf
-(
-"이름: %s \n"
-, s.name);
-
-printf
-(
-"백분율: %f \n"
-, s.percentage);
-
-return
-0
-;
+  s.id=1;
+  s.name = "김철수";
+  s.percentage = 90.5;
+  printf("아이디: %d \n", s.id);
+  printf("이름: %s \n", s.name);
+  printf("백분율: %f \n", s.percentage);
+  return 0;
 }
 ```
 
@@ -125,13 +78,7 @@ return
 만약 구조체 내의 각 변수들을 한 번에 초기화 하고 싶다면,
 
 ```
-student s = {
-1
-,
-"김철수"
-,
-90.5
-};
+student s = {1,"김철수",90.5};
 ```
 
 이렇게 간단하게 해도 된다.
@@ -141,65 +88,24 @@ student s = {
 그렇다면 이번에는 구조체 포인터를 이용해 구조체에 접근해보자.
 
 ```
-#
-include
-<
-stdio.h
->
-typedef
-struct
- student {
+#include <stdio.h>
 
-int
- id;
+typedef struct student {
+  int id;
+  char *name;
+  float percentage;
+}student; // 구조체 뒤에 세미콜론이 와야함
 
-char
- *name;
-
-float
- percentage;
-}student; 
-// 구조체 뒤에 세미콜론이 와야함
-int
-main
-()
-{
+int main() {
 
   student employee, *stptr;
-  stptr = 
-&
-employee;
-  stptr-
->
-id = 
-1
-;
-  stptr-
->
-name = 
-"홍길동"
-;
-  stptr-
->
-percentage =
-90.5
-;
-
-printf
-(
-"직원 안내: 아이디=%d\n%s\n%f\n"
-, stptr-
->
-id, stptr-
->
-name,
-  stptr-
->
-percentage);
-
-return
-0
-;
+  stptr = &employee;
+  stptr->id = 1;
+  stptr->name = "홍길동";
+  stptr->percentage =90.5;
+  printf("직원 안내: 아이디=%d\n%s\n%f\n", stptr->id, stptr->name,
+  stptr->percentage);
+  return 0;
 }
 ```
 

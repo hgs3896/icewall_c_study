@@ -1,620 +1,254 @@
 # 7 주차
 
-6주차 : 포인터, 동적 할당 & 스택프레임 그리기
+7주차 : argv, argc 이해하기, 동적 메모리 할당 & 스택프레임 그리기, use after free 취약
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%EC%A0%84%2010.10.44.png)
+##### 
 
-포인터\(Pointer\)란 메모리의 주소 값을 담고있는 변수 혹은 상수이다. 비슷하게는 데이터의 위치를 가리키는 녀석이라고 할 수도 있다. 의외로 간단해 보일지도 모르겠지만 주소 값과 관련이 있어 메모리의 주소체계를 이해하지 못하면 포인터를 정확히 이해할 수 없다. 여기서 주소란 그 메모리의 저장장소의 위치를 나타내는 값으로 하나의 주소값은 1바이트 크기의 메모리 공간을 표현한다.
+##### 오늘은 이 C 스터디의 첫 시간에 배웠던_argv, argc_에 대해 다시 짚고 넘어가보자. {#오늘은-이-c-스터디의-첫-시간에-배웠던-argv-argc에-대해-다시-짚고-넘어가보자}
 
-포인터 변수란 메모리 주소를 저장하는 변수이며 데이터 타입과 식별자\(=변수명\) 사이에 그저 \* 하나만 넣어주면 포인터 변수가 된다. 기본적인 데이터 타입과 구조체, 배열, 공용체에 대해서도 포인터형을 만들수가 있다. 그리고 & 연산자를 변수명 앞에다 가져오면 그 변수의 주소값을 반환하게 된다.
+그 때는 그 내용이 너무 생소해서 아마 잘 이해가 안 갔을 것이다.
 
-예제를 보며 좀 더 이해를 도와보자!
+이번 수업을 들으면서, 아 그 때 그런 의미였구나!! 라고 깨닫기를 바란다.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-()
+#include <stdio.h>
+int main(int argc, char * argv[])
 {
-    
-int
- num, num1, num2;
-
-    num=
-50
-;
-    num1=
-72
-;
-    num2=
-94
-;
-    
-printf
-(
-"num의 저장 위치: %#x\n"
-, 
-&
-num);
-    
-printf
-(
-"num1의 저장 위치: %#x\n"
-, 
-&
-num1);
-    
-printf
-(
-"num2의 저장 위치: %#x\n"
-, 
-&
-num2);
-    
-return
-0
-;
+    printf("parameter 개수 : %d\n",argc);
+    for(int i=0 ; i<argc; i++)
+        printf("%s\n",argv[i]);
+    return 0;
 }
-
 ```
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%EC%A0%84%2010.23.58.png)
+이 코드를 분석해보자.
 
-위의 예제는 &연산자를 이용하여 각 변수의 저장 위치,즉 주솟값을 출력해 본 것이다.
+지금까지 수업을 하면서, 함수라는 개념에 대해서 알게 되었을 것이다.
 
-이번에는_포인터_를 이용해 접근 해 보자.
+함수는 return\_type func\_Name\(parameter\) 이런형식이다.
 
-```
-#
-include
-<
-stdio.h
->
-int
-main
-()
-{
-    
-int
- Number;
-    
-int
- *pNumber;
+return과 parameter 모두 있어도 되고 없어도 된다.
 
-    Number=
-50
-;
-    pNumber=
-&
-Number;
-
-    
-printf
-(
-"변수 Number의 값: %d\n"
-, Number);
-    
-printf
-(
-"변수 Number의 주소값: %#x\n\n"
-, pNumber);
-
-    *pNumber=
-60
-;
-    
-printf
-(
-"변수 Number의 값: %d\n"
-, Number);
-    
-return
-0
-;
-}
+main은 프로그램의 시작점이 되는 함수이다. 그렇다면, main에 parameter를 어떻게 줘야 할까?
 
 ```
-
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%EC%A0%84%2010.25.59.png)
-
-pNumber라는 int형 포인터를 만들고 그 포인터 변수가 Number를 가리키게 만들었다.\(pNumber=&Number\)
-
-그리고나서 pNumber를 출력해보면, Number의 주솟값이 출력되는 것을 확인할 수 있다.
-
-pNumber라는 포인터를 이용해서 Number의 값에 접근을 하고 싶다면 어떻게 해야할까?
-
-pNumber라는 변수를 사용할 때\(포인터변수 선언할때 말고\)변수 이름앞에 \*을 붙이면,포인터가 가리키는 주소에 가서 그 값에 접근할 수 있게 된다.
-
-#### 이번에는이중포인터에 대해 배우자. {#이번에는이중포인터에-대해-배우자}
-
-이중 포인터는 \*을 두개를 붙여서 이중 포인터 변수를 선언한다.
-
-```
-#
-include
-<
-stdio.h
->
-int
-main
-()
-{
-    
-int
- Num1=
-50
-, Num2=
-100
-;
-    
-int
- *pNum1=
-&
-Num1;
-    
-int
- **dpNum1=
-&
-pNum1;
-
-    
-printf
-(
-"정수형 변수 Num1의 값: %d\n"
-, Num1);
-    
-printf
-(
-"pNum1이 가리키는 변수의 값: %d\n"
-, *pNum1);
-    
-printf
-(
-"dpNum1이 가리키는 변수의 값: %d\n\n"
-, **dpNum1);
-
-    *dpNum1=
-&
-Num2; 
-// pNum1=
-&
-Num2
-printf
-(
-"정수형 변수 Num2의 값: %d\n"
-, Num2);
-    
-printf
-(
-"pNum1이 가리키는 변수의 값: %d\n"
-, *pNum1);
-    
-printf
-(
-"dpNum1이 가리키는 변수의 값: %d\n\n"
-, **dpNum1);
-
-    **dpNum1+=
-150
-;
-    
-printf
-(
-"정수형 변수 Num2의 값: %d\n"
-, Num2);
-    
-printf
-(
-"pNum1이 가리키는 변수의 값: %d\n"
-, *pNum1);
-    
-printf
-(
-"dpNum1이 가리키는 변수의 값: %d\n"
-, **dpNum1);
-
-    
-return
-0
-;
-}
-
+gcc -o w word.c
 ```
 
-예를 들면,\*이 하나있는 int형 포인터 변수는 int형 변수를 가리키게 된다.그렇다면 \*\*이 두개인 int형 이중 포인터 변수는 int형 포인터 변수를 가리키는 포인터의 포인터가 되는 것이다.
-
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%EC%A0%84%2010.41.58.png)
-
-포인터의 주소값을 저장하기 위해 포인터 형이 int \*\*인 변수에 저장하였다. 포인터 변수 dpNum1에서 \*를 한번만 사용하면 dpNum1이 가리키는 포인터 pNum1의 주소값을 참고한다. \*\*를 두번 사용하면 dpNum1이 가리키는 변수를 의미한다. 이런 녀석을 이중 포인터라고 부르며, 포인터 변수를 가리키는 포인터라고 한다.
+위의 명령문을 linux의 terminal 창에서 실행하면, w라는 실행파일 이 생긴다. 이 word.c라는 파일을 gcc라는 컴파일러로 컴파일 해서 w라는 실행파일\(exe\)를 만든다는 의미이다.
 
 ###### 
 
-###### _그렇다면,이러한 포인터들로 기본적인 연산을 할수 있을까?_ {#그렇다면이러한-포인터들로-기본적인-연산을-할수-있을까}
+실행 화면을 보면서 이해해보자.
 
-예제를통해 확인해보자!
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202017-05-22%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2011.26.57.png)
+
+**./라는 명령어**는 실행파일을 실행시키는 명령어이다.
+
+./w라는 명령문으로 w라는 실행파일을 실행시킨다. 이때 실행과 동시에 main 함수에 hi hello라는 문자열을 전달한다.
+
+main에 parameter\(인자\)를 전달할 때는**./실행파일명**쓰면 된다.
+
+위의 실행화면 처럼 여러개를 전달할 수 있고, 전달되는 인자는 모두_문자열_형태로 전달된다. 그리고**실행파일명까지 함께 전달**이 된
+
+전달된 문자열들은 argv라는 문자열의 배열 안에 차례차례 담긴다.
+
+argc는 넘어오는 인자의 개수이다.
+
+# 
+
+---
+
+# 
+
+## 동적 메모리 할당 {#동적-메모리-할당}
+
+동적 메모리 할당이란 프로그램이 실행 도중에 동적으로 메모리를 할당 받는 것을 말한다. 보통 프로그램이 메모리를 할당받는 방법에는 정적과 동적 두 가지가 있다. 정적 메모리 할당은
+
+int buffer\[100\]; 와 같이 프로그램이 시작되기 전에 미리 그 크기를 아는 경우이다.
+
+동적 메모리 할당은 프로그램의 실행 도중에 메모리를 할당 받는 것이다. 프로그램에서는 필요한 만큼의 메모리를 시스템으로부터 동적으로 할당받아서 사용하고, 사용이 끝나면 시스템에 메모리를 반납한다.
+
+필요한 만큼만 할당을 받고 또**필요한 때에 사용하고 반납할 수 있기 때문에 메모리를 효율적**으로 사용할 수 있다.
+
+C언어에서는 malloc이라는 함수를 지원하여 동적메모리를 할당할 수 있으며, Memory Allocation\(메모리 할당\)을 줄여서 함수 명을 지은 것으로 보인다. 이 함수는 stdlib.h 헤더파일을 인클루드해야 사용할 수 있다. 사용법은 다음과 같다.
+
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/malloc.png)
+
+###### 
+
+malloc 함수는 인자로 들어온 메모리 크기값 만큼 메모리를 할당하여 void\* 자료형으로 반환한다. 따라서 자신이 원하는 자료형으로 형변환을 시켜줄 필요가 있다.
+
+이렇게 형변환을 해주는 가장 큰 이유는 나중에 메모리에 접근할 때 얼마만큼의 메모리를 읽을 것인지를 판단하기 위해서이다. 예를 들어 int\*의 경우 메모리 참조를 할 떄 메모리 영역을 4byte만큼만 읽을 것이다
+
+###### 
+
+그렇다면, 사용한 메모리의 반납은 어떻게 할까?
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-()
+    free(iptr);
+    free(cptr);
+    free(dptr);
+```
+
+이런 식으로 free라는 함수를 통해 메모리를 해제한다.
+
+동적할당된 메모리를 해제하는 것은 매우 중요한 일이다. 프로그램이 실행되는 동안에는 할당된 메모리가 사용되지 않는 중에도 계속 남아있기 때문이다. 예를 들어 게임에서 맵을 로딩하고 다른 맵으로 넘어갈 때 해제하지 않는다면? RAM이 버티질 못해서 컴퓨터가 꺼질 것이다. 프로그램에 필요한 최소한의 메모리를 사용하는 것은 운영체제나 다른 프로그램을**조화롭게 사용**하기 위해서 매우 중요한 일이다.
+
+###### 
+
+이번에는 배열을 동적으로 할당해보자.
+
+```
+int* ptr = (int*)malloc(sizeof(int) * 10);
+```
+
+위 코드는 sizeof\(int\)에 10을 곱한 크기 만큼, 즉 길이가 10인 정수형 배열을 동적할당 한 것이다. 단순히 malloc의 인자로 들어가는 값을 곱한 것이다.
+
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/2.png)
+
+세로 8, 가로 6의 배열을 동적할당한다고 할 때, 위 같이 코드를 작성할 수 있다.
+
+위에서 우리가 다루었던 내용들을 생각해보면 일단 가로 6의 배열을 8개를 만들면 된다는 것을 떠올려볼 수 있다. 역순으로 생각하면 길이 6의 배열을 할당할 길이 8의 포인터 배열을 동적할당하고, 순차적으로 길이 6의 배열을 할당하면 세로 8, 가로 6의 배열을 만들 수 있는 것이다. 그래서 소스코드 1번 라인에서 우선 포인터 배열을 동적할당하기 위해 2차 포인터를 만들고 malloc으로 동적할당 했다. 그리고 for문으로 할당된 포인터 배열을 돌면서 길이 6의 정수형 배열을 모두 할당했다.
+
+###### 
+
+이렇게 만들어진 2차원 배열은 2가지 방식으로 사용할 수 있다.
+
+int arr\[8\]\[6\]의 array
+
+1. 포인터를 사용하는 방식!
+
+arr\[1\]\[2\];
+
+int \*\* pptr = arr;
+
+\*\(\*\(pptr+1\)+2\) ==arr\[1\]\[2\]
+
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/ptr.png)
+
+1. 배열 형식으로 참조하는 방식
+
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/arr.png)
+
+###### 
+
+_**2차원 배열 메모리 해제하는 법**_
+
+```
+for(int y = 0; y < 8; y++) {
+            free(*(pptr + y));
+ }
+ free(pptr);
+```
+
+먼저 각각의 여러 행에 할당된 메모리를 해제하고
+
+전체 pptr을 해제한다.
+
+1차원 하나의 행으로만 이루어진 것이기 때문에 free를 한번만 하면 된다.
+
+###### 
+
+이러한 동적 메모리는 메모리의 heap이라는 영역에 할당된다.
+
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202017-05-23%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.32.42.png)
+
+데이터 영역: 전역 변수와 static 변수가 할당되는 영역
+
+* 프로그램의 시작과 동시에 할당되고, 프로그램이 종료되어야 메모리에서 소멸됨
+
+스택 영역 : 함수 호출 시 생성되는 지역 변수와 매개 변수가 저장되는 영역
+
+* 함수 호출이 완료되면 사라짐
+
+스택 영역에 함수와 변수들이 어떻게 쌓였다가 리턴되는지 파악할 수 있는 그림을 stack frame이라고 한다._**fibonacci 함수를 구현하는 코드로 간단한 스택프레임**_을 그려보자.
+
+```
+#include <stdio.h>
+
+int fibonacci( int n )
 {
-    
-char
- *pc;
-    
-int
- *pi;
-    
-double
- *pd;
+    if( n == 1 || n == 2 )
+    {
+        return 1;
+    }
 
-    pc=(
-char
- *)
-100
-;
-    pi=(
-int
- *)
-100
-;
-    pd=(
-double
- *)
-100
-;
-
-    
-printf
-(
-"pc 증가 전: %d\n"
-, pc);
-    
-printf
-(
-"pi 증가 전: %d\n"
-, pi);
-    
-printf
-(
-"pd 증가 전: %d\n\n"
-, pd);
-    pc++;
-    pi++;
-    pd++;
-    
-printf
-(
-"pc 증가 후: %d\n"
-, pc);
-    
-printf
-(
-"pi 증가 후: %d\n"
-, pi);
-    
-printf
-(
-"pd 증가 후: %d\n"
-, pd);
-    
-return
-0
-;
+    return fibonacci( n - 1 ) + fibonacci( n - 2 );
 }
 
-```
-
-각각의 char, int, double형 포인터들을 ++하면, 1씩 증가할까?
-
-결과를 보자.
-
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%EC%A0%84%2010.49.24.png)
-
-결과를 보시면 포인터의 자료형의 크기만큼 증가한다는 것을 알수 있습니다. char는 1, short는 2, int는 4, float는 4, double는 8로 말입니다. 만약에 2 이상의 수를 더한다면 '포인터가 가리키는 변수 데이터 타입의 크기 \* 정수' 만큼 증가가 되는걸 보실수 있습니다. 뺄셈도 이와 마찬가지입니다.
-
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%ED%9B%84%2012.51.17.png)
-
-```
-int
- *arr2; 
-// 포인터를 배열 처럼도 사용 가능.
-for
-(
-int
- i=
-0
- ; i
-<
-2
- ;i++) {
-    (arr2+i)=i; 
-//arr[0]=0, arr[1]=1, arr[2]=2 이런식으로포인터를 배열처럼도쓸수있다
-
-}
-
-```
-
-```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
+int main()
 {
+    int input;
+    int i;
 
+    printf( "input number : " );
+    scanf( "%d", &input );
 
-int
- arr[
-5
-] = {
-1
-, 
-2
-, 
-3
-, 
-4
-, 
-5
-};
+    for( i = 1; i <= input; i++ )
+    {
+        printf( "%d ", fibonacci( i ) );
+    }
+    printf( "\n" );
 
-int
- *ptr = arr;
-
-for
-(
-int
- i=
-0
- ; i
-<
-5
- ; i++){
-
-    
-printf
-(
-"%d\n"
-,*(ptr+i)); 
-// 포인터를 이용해 배열 접근. *(ptr+i)==arr[i].
-
+    return 0;
 }
-
-
-return
-0
-;
-}
-
 ```
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%ED%9B%84%2012.51.33.png)![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-16%20%EC%98%A4%ED%9B%84%2012.55.20.png)
+### fibo\(4\)의 stack frame {#fibo4의-stack-frame}
+
+##### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%90%E1%85%A2%E1%86%A8%E1%84%91%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%B7.png)
+
+##### 
+
+##### _heap영역에서도 5주 수업 때 얘기 했던 overflow\(stack에서 일어나\) 취약점이 비슷한 형식으로 발생할 수 있다._ {#heap영역에서도-5주-수업-때-얘기-했던-overflowstack에서-일어나-취약점이-비슷한-형식으로-발생할-수-있다}
+
+##### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202017-05-23%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.44.03.png)
+
+그리고 free라는 함수로 인해 생기는 Use After Free 라는 취약점도 발생합니다.
 
 ```
-#
-include
-<
-stdio.h
->
-void
-swap_value
-(
-int
- a, 
-int
- b)
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
 {
+    int* heap1;
+    int* heap2;
+    int* heap3;
 
-int
- temp = a;
-a=b;
-b=temp;
-}
+    heap1 = (int*)malloc(256);
+    heap2 = (int*)malloc(256);
 
+    printf("heap1 : %p\n",heap1);
+    printf("heap2 : %p\n",heap2);
 
-void
-swap
-(
-int
- *n1, 
-int
- *n2)
-{
+    *heap2 = 1234;
+    printf("heap2 number : %d\n",*heap2);
 
-int
- temp = *n1;
-*n1=*n2;
-*n2=temp;
-}
+    free(heap2);
+    printf("free heap2\n");
 
+    heap3 = (int*)malloc(256);
+    printf("new heap : %p\n",heap3);
+    printf("new heap number: %d\n",*heap3);
 
-int
-main
-(
-void
-)
-{
-
-int
- n1,n2;
-n1=
-10
-;
-n2=
-20
-;
-swap_value(n1, n2);
-
-printf
-(
-"%d %d\n"
-,n1,n2);
-swap(
-&
-n1,
-&
-n2);
-
-printf
-(
-"%d %d\n"
-,n1,n2);
-
-return
-0
-;
-
-}
-
-```
-
-연습 해보기!
-
-```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-int
- argc, 
-char
-* argv[])
-{
-   
-int
- arr[
-5
-];
-   
-for
- (
-int
- i = 
-0
-; i 
-<
-5
-; ++i) {
-      arr[i] = i;
-   }
-
-   
-int
-* pNum = 
-&
-arr[
-0
-];
-   
-int
-* pNum2 = 
-&
-arr[
-3
-];
-
-   
-int
-** ppNum = 
-&
-pNum;
-
-   *pNum += 
-2
-;
-   arr[
-0
-] += 
-10
-;
-   arr[
-2
-] -= 
-2
-;
-   *pNum2 -= 
-3
-;
-
-   (pNum)++;
-
-
-   *pNum = 
-103
-;
-
-
-   ppNum = 
-&
-pNum2;
-
-   **ppNum = 
-100
-;
-
-   (*ppNum)++;
-
-   
-for
- (
-int
- i = 
-0
-; i 
-<
-5
-; ++i) {
-      
-printf
-(
-"arr[%d] : %d\n"
-, i, arr[i]);
-   }
-
-
-   
-printf
-(
-"*pNum : %d\n"
-, *pNum);
-   
-printf
-(
-"*pNum2 : %d\n"
-, *pNum2);
-   pNum2--;
-   
-printf
-(
-"**ppNum: %d\n"
-, **ppNum);
-
-
-   
-return
-0
-;
+    return 0;
 }
 ```
+
+##### 
+
+---
+
+_**오늘의 과제!!**_
+
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/snail.png)  
+숫자 n을 입력 받은 후 그림과 같이\(달팽이 배열\) n\*n배열을 출력하는 프로그램을 작성하시오.
+
+-&gt; 동적 메모리 할당 이용
+
+###### \*달팽이가 어렵다면 그냥 쭉 1~n\*n까지 출력해도 됩니다. {#달팽이가-어렵다면-그냥-쭉-1nn까지-출력해도-됩니다}
 
 
 

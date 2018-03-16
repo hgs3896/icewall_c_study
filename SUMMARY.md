@@ -4,9 +4,9 @@
 * [First Chapter](chapter1.md)
 * [Second Chapter](second-chapter.md)
 * [Third Chapter](third-chapter.md)
-* Fourth Chapter
-* Fifth Chapter
-* Sixth Chapter
-* Seventh Chapter
-* Eighth Chapter
+* [Fourth Chapter](fourth-chapter.md)
+* [Fifth Chapter](fifth-chapter.md)
+* [Sixth Chapter](sixth-chapter.md)
+* [Seventh Chapter](seventh-chapter.md)
+* [Eighth Chapter](eighth-chapter.md)
 

@@ -1,8 +1,8 @@
 # 5 주차
 
-5주차 : 1차원 배열, 2차원 배열, char 배열 배우기, buffer overflow 취약점 이해하기
 
-##### 
+
+5주차 : 1차원 배열, 2차원 배열, char 배열 배우기, buffer overflow 취약점 이해하기
 
 배열이란 하나의 이름으로 참조되는 같은 자료형을 담는 메모리의 연속적 공간을 말한다.아래와 같은 그림은 int형 데이터를 담는 연속적인 공간, int형 배열이다.
 
@@ -19,50 +19,18 @@
 10명의 학생의 소입설 점수를 입력받아서 저장하는 프로그램을 만든다고 해보자.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- stu1, stu2, stu3, stu4, stu5, stu6, stu7, stu8, stu9, stu10;
-    
-scanf
-(
-"%d"
-,
-&
-stu1);
-    
-scanf
-(
-"%d"
-,
-&
-stu2);
-            .
-            .
-            .
-    
-scanf
-(
-"%d"
-,
-&
-stu10)
-    
-return
-0
-;
-}
+#include<stdio.h>
 
+int main(void) {
+    int stu1, stu2, stu3, stu4, stu5, stu6, stu7, stu8, stu9, stu10;
+    scanf("%d",&stu1);
+    scanf("%d",&stu2);
+            .
+            .
+            .
+    scanf("%d",&stu10)
+    return 0;
+}
 ```
 
 그렇다면,이렇게 10명의 변수를 하나하나 만들어서 scanf로 입력을 받아야할까?
@@ -74,61 +42,17 @@ return
 1차원 배열의 사용방법은 다음 코드를 보며 이해해 보자.
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- stu[
-10
-];
-    
-for
-(
-int
- i=
-0
- ; i
-<
-10
- ; i++) {
-        
-scanf
-(
-"%d"
-, 
-&
-stu[i]);
+#include<stdio.h>
 
-    
-for
-(
-int
- i=
-0
- ; i
-<
-10
- ; i++) {
-        
-printf
-(
-"%d\n"
-,stu[i]);
-    
-return
-0
-;
+int main(void) {
+    int stu[10];
+    for(int i=0 ; i<10 ; i++) {
+        scanf("%d", &stu[i]);
+
+    for(int i=0 ; i<10 ; i++) {
+        printf("%d\n",stu[i]);
+    return 0;
 }
-
 ```
 
 1차원 배열의 선언 방식은 다음과 같다.
@@ -171,120 +95,35 @@ arr\[2\]\[0\]를 이용하면, arr의 2행 0열에 들어있는 데이터에 접
 **! 한 층에 3가구 씩 4층 짜리 아파트가 있다. 각 세대 별로 인구 수 를 입력받은 후, 몇 층에 몇명이 사는지 알아 볼수 있는 프로그램을 만들어 보자.**
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-int
- apart[
-4
-][
-3
-];
+#include<stdio.h>
+
+int main(void) {
+    int apart[4][3];
 
 
-    
-for
-(
-int
- i=
-0
- ; i
-<
-4
- ; i++) {
-        
-//행에 접근하기 위한 반복
-for
-(
-int
- j=
-0
- ; j
-<
-3
- ; j++) {
-            
-// 열에 접근하기 위한 반복
-scanf
-(
-"%d"
-,
-&
-apart[i][j]);
+    for(int i=0 ; i<4 ; i++) {
+        //행에 접근하기 위한 반복
+        for(int j=0 ; j<3 ; j++) {
+            // 열에 접근하기 위한 반복
+            scanf("%d",&apart[i][j]);
         }
     }
-    
-int
- sum=
-0
-;
-    
-int
- op=
-0
-;
-    
-while
-(
-1
-) {
-        sum=
-0
-;
-        
-printf
-(
-"몇 층의 인구를 알아볼까요? "
-);
-        
-scanf
-(
-"%d"
-,
-&
-op);
-//
-if
-(op==
--1
-)
-            
-break
-;
-        
-for
-(
-int
- i=
-0
- ; i
-<
-3
- ; i++) {
+    int sum=0;
+    int op=0;
+    while(1) {
+        sum=0;
+        printf("몇 층의 인구를 알아볼까요? ");
+        scanf("%d",&op);//
+        if(op==-1)
+            break;
+        for(int i=0 ; i<3 ; i++) {
             sum += apart[op][i];
         }
-        
-printf
-(
-"총 %d명\ㅜㅜn"
-sum);
+        printf("총 %d명\ㅜㅜn"sum);
     }
 
-    
-return
-0
-;
+    return 0;
 }
-
 ```
 
 ##### 
@@ -329,151 +168,51 @@ char 배열에서 문자들의 가장 끝에 널문자 \(\0\)가 들어가야만
 문자열을 선언하는 방법에 대해 보자.
 
 ```
-char
- str[] = 
-"hello"
-// 알아서 크기가 6만큼 할당된다. 'o' 다음에 널문자인 '\0'이 알아서 들어 감. 
-char
- str2[
-6
-] = 
-"hello"
-// 직접 크기를 6으로 할당하고 넣어준다.
-// str과 str2는 같은 구조이다.
-char
- day[
-4
-];
-day[
-0
-] = 
-'d'
-;
-day[
-1
-] = 
-'a'
-;
-day[
-2
-] = 
-'y'
-;
+char str[] = "hello" // 알아서 크기가 6만큼 할당된다. 'o' 다음에 널문자인 '\0'이 알아서 들어 감. 
+char str2[6] = "hello" // 직접 크기를 6으로 할당하고 넣어준다.
 
+// str과 str2는 같은 구조이다.
+
+char day[4];
+day[0] = 'd';
+day[1] = 'a';
+day[2] = 'y';
 
 // 이때의 char 배열은 공백문자를 할당하지 않았기 때문에 문자열이 아니다. 문자열이 아닌 char배열이다.
 
-
-day[
-3
-] = 
-'\0'
+day[3] = '\0'
 //이렇게 마지막에 널문자를 넣어준다면, 문자열로 인식할 수 있다.
 ```
 
 그냥 char배열과 문자열의 차이를 알아보자면,
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-char
- str[] = 
-"hello"
-;
-    
-char
- fruits[
-5
-]= {
-'a'
-,
-'p'
-,
-'p'
-,
-'l'
-,
-'e'
-};
-    
-for
-(
-int
- i=
-0
- ; i
-<
-5
- ; i++)
-        
-printf
-(
-"%c"
-, fruits[i]);
-        
-//배열에 접근해서 하나씩 출력
-printf
-(
-"\n"
-);
+#include<stdio.h>
 
-    
-printf
-(
-"%s\n"
-,str);
-//문자열의 출력 문자로 한번에 출력.
+int main(void) {
+    char str[] = "hello";
+    char fruits[5]= {'a','p','p','l','e'};
+    for(int i=0 ; i<5 ; i++)
+        printf("%c", fruits[i]);
+        //배열에 접근해서 하나씩 출력
+    printf("\n");
 
+    printf("%s\n",str);//문자열의 출력 문자로 한번에 출력.
 
 }
-
 ```
 
 문자열을 입력받을 때는
 
 ```
-#
-include
-<
-stdio.h
->
-int
-main
-(
-void
-)
-{
-    
-char
- fruits[
-6
-];
-    
-scanf
-(
-"%s"
-,fruits);
-    
-printf
-(
-"%s\n"
-,fruits);
-    
-return
-0
-;
-}
+#include<stdio.h>
 
+int main(void) {
+    char fruits[6];
+    scanf("%s",fruits);
+    printf("%s\n",fruits);
+    return 0;
+}
 ```
 
 %s 로 입력을 받으면, 알아서 공백문자가 추가되어 저장된다.
@@ -489,41 +228,14 @@ _**이제 문자열 관련 함수를 배우자.**_
 이 함수의 리턴 형태는 문자열 형태이다.
 
 ```
-#
-include
-<
-stdio.h
->
-#
-include
-<
-string.h
->
-int
-main
-()
-{    
-    
-char
- name[
-10
-];    
-    
-strcpy
-(name,
-"LZena"
-);    
-    
-printf
-(
-"입력된 문자열 : %s "
-,name);    
-    
-return
-0
-;
+#include <stdio.h>
+#include <string.h>
+int main(){    
+    char name[10];    
+    strcpy(name,"LZena");    
+    printf("입력된 문자열 : %s ",name);    
+    return 0;
 }
-
 ```
 
 ###### 
@@ -533,47 +245,14 @@ return
 -&gt; 문자열의 길이를 반환하는 함수\(리턴 형태는 unsigned int\)
 
 ```
-#
-include
-<
-stdio.h
->
-#
-include
-<
-string.h
->
-int
-main
-()
-{    
-    
-char
- name[
-10
-] = 
-"yurim"
-;        
-    
-printf
-(
-"문자열 길이 : %d \n"
-,
-strlen
-(name));
-    
-printf
-(
-"배열의 길이 : %d \n"
-, 
-sizeof
-(name));    
-    
-return
-0
-;
+#include <stdio.h>
+#include <string.h>
+int main(){    
+    char name[10] = "yurim";        
+    printf("문자열 길이 : %d \n",strlen(name));
+    printf("배열의 길이 : %d \n", sizeof(name));    
+    return 0;
 }
-
 ```
 
 ###### 
@@ -585,73 +264,21 @@ return
 대 ,소문자를 구분하며 알파벳 순으로 비교했을 때 크다, 작다를 말합니다.
 
 ```
-#
-include
-<
-stdio.h
->
-#
-include
-<
-string.h
->
-int
-main
-()
+#include <stdio.h>
+#include <string.h>
+int main()
 {
-    
-char
- str1[
-20
-]=
-"apple"
-;
-    
-char
- str2[
-20
-]=
-"banana"
-;
-    
-printf
-(
-"apple : banana반환 값 : %d\n"
-,
-strcmp
-(str1,str2));
+    char str1[20]="apple";
+    char str2[20]="banana";
+    printf("apple : banana반환 값 : %d\n",strcmp(str1,str2));
 
-    
-strcpy
-(str2,
-"apple"
-);
-    
-printf
-(
-"apple : apple 반환 값 : %d\n"
-,
-strcmp
-(str1,str2));
+    strcpy(str2,"apple");
+    printf("apple : apple 반환 값 : %d\n",strcmp(str1,str2));
 
-    
-strcpy
-(str1,
-"cherry"
-);
-    
-printf
-(
-"cherry : apple반환 값 : %d\n"
-,
-strcmp
-(str1,str2));
-    
-return
-0
-;
+    strcpy(str1,"cherry");
+    printf("cherry : apple반환 값 : %d\n",strcmp(str1,str2));
+    return 0;
 }
-
 ```
 
 ##### 
@@ -674,7 +301,7 @@ buffer는 일종의 메모리 저장장치의 일종이라고 생각합시다. b
 
 ###### 
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-05-09%20%EC%98%A4%ED%9B%84%204.30.05.png)picoctf라는 입문자용 ctf의 bufferoverflow 문제를 보며 좀 더 알아보자.
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-05-09 오후 4.30.05.png)picoctf라는 입문자용 ctf의 bufferoverflow 문제를 보며 좀 더 알아보자.
 
 자세한 문제는 shell을 통해 보자.
 
@@ -709,6 +336,4 @@ int의 표현 가능 범위는 -2147483647 ~ 2147483647이다.
 ###### 
 
 이 문제는 버퍼 오버플로우 문제 중에서 간단한 축에 속하고, 여러가지 응용을 통해 프로그램의 권한을 취득하는 등 악용할 수 있다.
-
-
 

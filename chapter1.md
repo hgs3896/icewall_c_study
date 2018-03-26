@@ -66,6 +66,7 @@ C언어로 만든 프로그램은 컴파일이라는 과정을 거쳐 바로 실
 C언어로 된 프로그램을 만들기 위해서 필요한 것은
 
 * C 코드를 작성할 수 있는 **편집기\(Editor\)**
+
   * Notepad
   * Emacs
   * Sublime Text
@@ -78,7 +79,9 @@ C언어로 된 프로그램을 만들기 위해서 필요한 것은
   * Notepad++
 
   * etc...
+
 * 작성된 C 코드를 기계어로 번역하는 **C 컴파일러\(C Compiler\)**
+
   * gcc
   * mingw+gcc
 
@@ -104,28 +107,20 @@ C언어로 된 프로그램을 만들기 위해서 필요한 것은
 
 이름하여 통합 개발 환경\(Integrated Development Environment\)라 불리는 것들 입니다.
 
-IDE 의 종류로는
+IDE의 종류는
 
 * ###### Microsoft Visual Stduio\(for Window user\)
 * ###### Xcode\(for Mac user\)
 * ###### Code Blocks
 * ###### Eclipse CDT
 
-등등... 이 있다.
+가 있습니다.
 
-컴파일러의 종류로는
 
-* GCC
 
-등.. 이 있다.
+하지만 수업의 편의를 위해서 Microsoft Visual Studio 로 수업을 진행하려고 합니다.
 
-Text Editor의 종류로는
 
-* Sublime Text
-* Notepad++
-* vim
-
-등... 있다.
 
 ### 이제 예제 코드를 하나 보면서 좀 더 배워 봅시다. {#이제-예제-코드를-하나-보면서-좀-더-배워-봅시다}
 

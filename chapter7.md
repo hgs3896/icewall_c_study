@@ -41,7 +41,7 @@ gcc -o w word.c
 
 실행 화면을 보면서 이해해보자.
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202017-05-22%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2011.26.57.png)
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-05-22 오전 11.26.57.png)
 
 **./라는 명령어**는 실행파일을 실행시키는 명령어이다.
 
@@ -152,7 +152,7 @@ for(int y = 0; y < 8; y++) {
 
 이러한 동적 메모리는 메모리의 heap이라는 영역에 할당된다.
 
-![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202017-05-23%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.32.42.png)
+![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-05-23 오전 10.32.42.png)
 
 데이터 영역: 전역 변수와 static 변수가 할당되는 영역
 
@@ -197,13 +197,13 @@ int main()
 
 ### fibo\(4\)의 stack frame {#fibo4의-stack-frame}
 
-##### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%90%E1%85%A2%E1%86%A8%E1%84%91%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%B7.png)
+##### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스택프레임.png)
 
 ##### 
 
 ##### _heap영역에서도 5주 수업 때 얘기 했던 overflow\(stack에서 일어나\) 취약점이 비슷한 형식으로 발생할 수 있다._ {#heap영역에서도-5주-수업-때-얘기-했던-overflowstack에서-일어나-취약점이-비슷한-형식으로-발생할-수-있다}
 
-##### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202017-05-23%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.44.03.png)
+##### ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/스크린샷 2017-05-23 오전 10.44.03.png)
 
 그리고 free라는 함수로 인해 생기는 Use After Free 라는 취약점도 발생합니다.
 

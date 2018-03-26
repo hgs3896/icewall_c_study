@@ -116,8 +116,6 @@ IDE의 종류는
 
 가 있습니다.
 
-
-
 하지만 수업의 편의를 위해서 Microsoft Visual Studio 로 수업을 진행하려고 합니다.
 
 1. [https://docs.microsoft.com/ko-kr/visualstudio/install/install-visual-studio](https://docs.microsoft.com/ko-kr/visualstudio/install/install-visual-studio "Visual Studio 2017 Download Page") 에 접속합니다.
@@ -137,8 +135,6 @@ IDE의 종류는
 
 9. 마음에 드는 에디터 색상을 선택한다.
 
-
-
 \[Visual Studio 시작 화면\]![](/assets/VS 시작화면)
 
 Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다.
@@ -147,7 +143,23 @@ Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다.
 
 
 
+1. 파일 -&gt; 새로 만들기 -&gt; 프로젝트 선택
 
+![](/assets/프로젝트 생성)
+
+
+
+2. 프로젝터 세부 옵션을 설정한다.![](/assets/프로젝트 설정) 
+
+- Win32 콘솔 응용 프로그램을 선택
+
+   - 이름: 자유롭게 정하기
+
+  - 위치: 파일이 저장될 위치를 지정, 본인이 원하는 위치를 지정하거나, 기본 위치를 선택
+
+  - '솔루션용 디렉토리 만들기'를 체크: 프로그래밍 관련된 파일들을 한군데 모을 수 있다.
+
+  - 확인 버튼을 눌러서 다음 단계로 진행
 
 ### 이제 예제 코드를 하나 보면서 좀 더 배워 봅시다. {#이제-예제-코드를-하나-보면서-좀-더-배워-봅시다}
 

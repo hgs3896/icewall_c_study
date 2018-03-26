@@ -120,6 +120,33 @@ IDE의 종류는
 
 하지만 수업의 편의를 위해서 Microsoft Visual Studio 로 수업을 진행하려고 합니다.
 
+1. [https://docs.microsoft.com/ko-kr/visualstudio/install/install-visual-studio](https://docs.microsoft.com/ko-kr/visualstudio/install/install-visual-studio "Visual Studio 2017 Download Page") 에 접속합니다.
+2. '2단계 - Visual Studio 다운로드' 에 있는 VISUAL STUDIO 2017 다운로드를 클릭합니다.
+
+3. Visual Studio Community 2017 \(학생 및 오픈소스 개발자를 위한 모든 기능을 갖춘 무료 IDE\)을 누릅니다.
+
+4. 다운로드 받은 파일\(**vs\_community~.exe\)**을 실행합니다.
+
+5. 사용 약관 및 개인정보처리방침에 동의를 눌러줍시다.
+
+6. 'C++을 사용한 데스크톱 개발'에 체크하고, 설치 버튼을 눌러 설치를 진행한다.
+
+7. 설치가 완료되면, 실행 버튼이 활성화 되는데 실행을 눌러 Visual Studio를 실행한다.
+
+8. 나중에 로그인을 눌러 진행한다.
+
+9. 마음에 드는 에디터 색상을 선택한다.
+
+
+
+\[Visual Studio 시작 화면\]![](/assets/VS 시작화면)
+
+Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다.
+
+따라서, 프로젝트를 생성하자.
+
+
+
 
 
 ### 이제 예제 코드를 하나 보면서 좀 더 배워 봅시다. {#이제-예제-코드를-하나-보면서-좀-더-배워-봅시다}

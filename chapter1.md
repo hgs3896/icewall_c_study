@@ -133,15 +133,19 @@ IDE의 종류는
 
 9. 마음에 드는 에디터 색상을 선택한다.
 
-\[Visual Studio 시작 화면\]![](/assets/vs_start.png)
+\[Visual Studio 시작 화면\]![](/assets/week1/vs_start.png)
 
 Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다. 따라서, 프로젝트를 생성하자.
 
-\[Visual Studio 프로젝트 생성\]![](/assets/vs_make_project.png)방법은 간단하다.
+\[Visual Studio 프로젝트 생성\]
+
+![](/assets/week1/vs_make_project.png)
+
+방법은 간단하다.
 
 1\) 파일 -&gt; 새로 만들기 -&gt; 프로젝트 선택
 
-\[새 프로젝트 만들기 및 세부 설정\]![](/assets/vs_make_new_project.png)
+\[새 프로젝트 만들기 및 세부 설정\]![](/assets/week1/vs_make_new_project.png)
 
 2\) 프로젝트 세부 옵션을 설정한다.
 
@@ -155,7 +159,7 @@ Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다. 따
 >
 > 확인 버튼을 눌러서 다음 단계로 진행한다.
 
-![](/assets/vs_project_settings.png)
+![](/assets/week1/vs_project_settings.png)
 
 3\) 프로젝트 세부 설정
 
@@ -171,9 +175,7 @@ Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다. 따
 
 \[솔루션 탐색기\]
 
-![](assets/vs_solution_explorer.png)
-
-
+![](/assets/week1/vs_solution_explorer.png)
 
 4\) **프로젝트가 만들어지면 솔루션 탐색기에 \[내가 정한 프로젝트 이름\]으로 된 폴더 구조의 무언가가 나타난다.**
 
@@ -187,21 +189,17 @@ Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다. 따
 
 등으로 구성된다.
 
-
-
 5\) 일단 소스코드를 작성하기 위해
 
 1\) 소스 파일에 마우스 오른쪽 버튼을 클릭하고
 
 2\) 추가 -&gt; 새 항목을 클릭한다.
 
-![](/assets/vs_add_source_code.png)
+![](/assets/week1/vs_add_source_code.png)
 
 6\) **새 항목 추가 화면에서**
 
-![](/assets/vs_add_new_item.png)
-
-
+![](/assets/week1/vs_add_new_item.png)
 
 C++ 파일로 선택하고, 소스코드 파일이름을 입력한다
 
@@ -211,7 +209,7 @@ C++ 파일로 선택하고, 소스코드 파일이름을 입력한다
 
 그리고 추가를 눌러 파일을 프로젝트에 추가하자.
 
-![](assets/vs_hello_world_code.png)
+![](/assets/week1/vs_hello_world_code.png)
 
 그렇게 해서 새로 만들어진 파일을 솔루션 탐색기에서 열고 다음의 내용을 오타 없이 그대로 따라써봅시다.
 
@@ -219,8 +217,8 @@ C++ 파일로 선택하고, 소스코드 파일이름을 입력한다
 #include <stdio.h>
 
 int main() {
-	printf("안녕 세상아!");
-	return 0;
+    printf("안녕 세상아!");
+    return 0;
 }
 ```
 

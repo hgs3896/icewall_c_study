@@ -103,7 +103,7 @@ C언어로 된 프로그램을 만들기 위해서 필요한 것은
 
 그리고 코드 편집과 컴파일을 묶어서 간편하게 만든 프로그램도 존재합니다.
 
-이름하여 통합 개발 환경\(Integrated Development Environment\)라 불리는 것들 입니다.
+이름하여 통합 개발 환경\(IDE : Integrated Development Environment\)라 불리는 것들 입니다.
 
 IDE의 종류는
 

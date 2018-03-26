@@ -137,13 +137,35 @@ IDE의 종류는
 
 
 
+
+
+
+
 \[Visual Studio 시작 화면\]![](/assets/vs_start.png)
+
+
+
+
+
+
+
+
 
 Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다. 따라서, 프로젝트를 생성하자.
 
-\[Visual Studio 프로젝트 생성\]![](/assets/vs_make_project.png)
+\[Visual Studio 프로젝트 생성\]![](/assets/vs_make_project.png)방법은 간단하다.
 
 1\) 파일 -&gt; 새로 만들기 -&gt; 프로젝트 선택
+
+
+
+
+
+
+
+
+
+
 
 \[새 프로젝트 만들기 및 세부 설정\]![](/assets/vs_make_new_project.png)
 
@@ -161,6 +183,12 @@ Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다. 따
 
 
 
+
+
+
+
+
+
 ![](/assets/vs_project_settings.png)
 
 3\) 프로젝트 세부 설정
@@ -174,8 +202,6 @@ Visual Studio는 모든 프로그램을 프로젝트 단위로 관리한다. 따
 * SDL 검사 : 보안 강화를 위해 적용되는 검사기능이다. 나중에 이게 무엇인지 확인해볼 것이다. \(체크 해제 한다\)
 
 * 확인 버튼을 눌러서 진행
-
-
 
 5\) **프로젝트가 만들어지면 솔루션 탐색기에 ConsoleApplication1이라는 프로젝트 이름이 나타난다.**
 

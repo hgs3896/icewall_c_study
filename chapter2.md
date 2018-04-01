@@ -1,6 +1,6 @@
 # 2 주차 {#2-주차}
 
-#### 2주차 : main 함수, 컴파일, 변수와 상수, 형식, 수식과 연산자, 여러가지 문장, 표준 입출력
+#### 2주차 : main 함수, 컴파일, 변수와 상수, 형식, 수식과 연산자, 여러가지 문장, 표준 입출력, Spirits of C
 
 지난 시간에 배운 내용들을 살펴보면,
 
@@ -133,7 +133,23 @@ int main() {
 
 ---
 
-#### 
+C언어의 철학\(Spirit of C\)
+
+> * Trust the programmer 
+>   \(프로그래머는 실수따위 절대 안 함.\)
+> * Don't prevent the programmer from doing what needs to be done.
+>   \(자비로움 그 자체 : 우리 애긔\(프로그래머\) 하고 싶은거 다 해. =&gt; 해킹 툴 만드는 것도 가능함.\)
+>
+> * Keep the language small and simple if you know what you are doing.
+>   \(C로 만들 것이 있다면 코드를 최대한 간결하고, 작게 유지하자. =&gt; 파이썬에 비해 난해한 코드장난이 가능!\)
+>
+> * Provide only one way to do an operation
+>   \(이 기능은 이 방법 말고는 없도록 만들자.\)
+>
+> * Make it fast, even if it is not guaranteed to be portable.
+>   \(스마트폰에선 설령 못 쓸 프로그램이 될 지라도, 슈퍼 컴퓨터에선 성능 뽕 제대로 맞아보자.\)
+
+#### 변수와 상수를 구분하자.
 
 #### 프로그래밍에도 수학에서 상수와 변수가 있다.
 

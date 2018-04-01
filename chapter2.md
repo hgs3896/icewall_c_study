@@ -137,21 +137,51 @@ C언어의 철학\(Spirit of C\)
 
 > * Trust the programmer 
 >   \(프로그래머는 실수따위 절대 안 함.\)
-> * Don't prevent the programmer from doing what needs to be done.
+> * Don't prevent the programmer from doing what needs to be done.  
 >   \(자비로움 그 자체 : 우리 애긔\(프로그래머\) 하고 싶은거 다 해. =&gt; 해킹 툴 만드는 것도 가능함.\)
 >
-> * Keep the language small and simple if you know what you are doing.
+> * Keep the language small and simple if you know what you are doing.  
 >   \(C로 만들 것이 있다면 코드를 최대한 간결하고, 작게 유지하자. =&gt; 파이썬에 비해 난해한 코드장난이 가능!\)
 >
-> * Provide only one way to do an operation
+> * Provide only one way to do an operation  
 >   \(이 기능은 이 방법 말고는 없도록 만들자.\)
 >
-> * Make it fast, even if it is not guaranteed to be portable.
+> * Make it fast, even if it is not guaranteed to be portable.  
 >   \(스마트폰에선 설령 못 쓸 프로그램이 될 지라도, 슈퍼 컴퓨터에선 성능 뽕 제대로 맞아보자.\)
 
 #### 변수와 상수를 구분하자.
 
-#### 프로그래밍에도 수학에서 상수와 변수가 있다.
+값의 형식이 중요하다를 배웠으니 값을 다뤄야겠지요?
+
+그런데 프로그래밍을 오로지 값으로만 떡칠한다면 사람이 알아보기가 쉬울까요?
+
+
+
+저희가 위에서 만든 프로그램의 일부를 기계어 코드\(숫자 값들\)로만 바꾼다면 이렇게 됩니다.
+
+```
+...
+00D91040
+00D91045
+00D9104A
+00D9104D
+00D9104F
+...
+```
+
+
+
+Visual Studio를 켜서 저번에 작업했던 프로젝트를 열고 F10을 눌러봅시다.
+
+\(F10을 누르면 나오는 것은 디버거라고 하는 것입니다. 자세한 것은 나중에 살펴봅시다.\)
+
+그리고 Alt+G\(디스어셈블리\)를 눌러 내가 손수 적은 C 코드가 숫자값들의 향연으로 바뀌어있는지 두 눈으로 확인해봅시다.
+
+\(Shift + F5를 누르면 디버거가 닫힙니다.\)
+
+
+
+프로그래밍에도 수학에서 상수와 변수가 있다.
 
 상수는 일정한 양을 가지는 값을 의미한다. 이러한 상수들의 형태를**자료형**이라고 한다.
 

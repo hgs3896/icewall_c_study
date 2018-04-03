@@ -192,7 +192,15 @@ int num;
 > 변수 이름 제한 조건  
 >  : 변수 이름에는 몇가지 예약어를 제외하면, 알파벳\(대소문자 구분\)과 숫자 그리고 \_\(underscore\)를 이용해 구성할 수 있습니다.
 >
-> 그러나 변수 명을 숫자로 시작할 수는 없습니다.
+> 또 변수 명은 숫자로 시작할 수는 없습니다.
+>
+> 변수 명의 길이는 ANSI C 표준에 따르면 외부 변수나 매크로는 6자 이내, 내부 변수는 31자 이내로 짓기를 권장하고 있습니다만 ~~옛날은 메모리 부족해서 그런거고~~ 요새는 변수 이름 200자 써도 괜찮아요. ~~물론 변수명 600자 쯤 넘어가면 컴파일러가 파싱을 못해 거부합니다...~~
+>
+> 가급적 내부 변수 명은 짧고 알아보기 쉬운걸로 적어주세요.
+>
+> ~~그리고 라이브러리 헤더에 들어있는 이름들 중에서는 \__로 시작하는 것들이 있기에 _\_로 시작하는 것은 가급적 삼가주세요.~~
+>
+> ~~\(컴파일러에 따라서 변수명에 $\(달러사인\) 같은걸 집어 넣을 수 있다고 합니다. GCC\)~~
 
 ```
 (변수 형식) (변수 이름);
@@ -202,11 +210,18 @@ int num;
 
 그럼 기본적으로 C언어에서 이용 가능한 형식은 어떤 것들이 있을까요?
 
+| Typename | Description |
+| ---: | :--- |
+| char | a single byte, capable of holding one character |
+| int | an integer, typically reflecting the natural size of integers on the host machine |
+| float | single-precision floating point |
+| double | double-precision floating point |
+
+하하
+
 
 
 ---
-
-####  {#이번에는-프로그래밍에서의-변수에-대해-알아보자}
 
 **이제 자료형에 맞춰 printf로 변수를 출력하는 법을 알아보자.**
 
@@ -299,6 +314,16 @@ C언어의 철학\(Spirit of C\)
 >
 > * Make it fast, even if it is not guaranteed to be portable.  
 >   \(스마트폰에선 설령 못 쓸 프로그램이 될 지라도, 슈퍼 컴퓨터에선 성능 뽕 제대로 맞아보자.\)
+
+References
+
+The Maximum Length of Variable Names
+
+> https://msdn.microsoft.com/en-us/library/e7f8y25b.aspx
+>
+> http://gcc.gnu.org/onlinedocs/cpp/Implementation-limits.html
+
+
 
 
 

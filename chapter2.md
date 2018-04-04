@@ -257,8 +257,6 @@ printf 함수 : print a formatted text
 
 > 값 형식
 
-
-
 **이제 형식에 맞춰 printf로 변수를 출력하는 법을 알아보자.**
 
 ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/자료형.JPG)

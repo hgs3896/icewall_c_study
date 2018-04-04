@@ -217,9 +217,27 @@ int num;
 | float | single-precision floating point |
 | double | double-precision floating point |
 
-하하
+char 형은 \(미국인 기준\) 문자 하나를 저장할 수 있는 형식입니다.
 
+> char : Character\(문자\)라는 의미에서 나온 형식 이름입니다.
 
+int 형은 적당한 범위의 정수 하나를 저장할 수 있는 형식입니다.
+
+> int : Integer\(정수\)라는 의미에서 나온 형식 이름입니다.
+
+float 형은 적당한 범위의 부동 소수\(유한 소수\)를 저장할 수 있는 형식입니다.
+
+> float : Floating point Number라는 의미에서 나온 형식 이름입니다.
+>
+> Floating이라는 말은 소수를 저장하는데 소수점 부분이 이동한다는 말에서 유래했는데요. 
+>
+> 가령, 31.41를 저장하기 위해 지수부분과 가수부분을 분리하여 저장합니다.
+>
+> $$3.141 × 10² = (지수:2, 가수 : 3.141)$$
+
+double 형은 float형 보다 더 넓은 범위의 부동 소수\(유한 소수\)를 저장할 수 있는 형식입니다.
+
+> double floating point number\(float보다 더 큰 정밀도로 부동소수를 저장할 수 있다.\)
 
 ---
 
@@ -319,11 +337,9 @@ References
 
 The Maximum Length of Variable Names
 
-> https://msdn.microsoft.com/en-us/library/e7f8y25b.aspx
+> [https://msdn.microsoft.com/en-us/library/e7f8y25b.aspx](https://msdn.microsoft.com/en-us/library/e7f8y25b.aspx)
 >
-> http://gcc.gnu.org/onlinedocs/cpp/Implementation-limits.html
-
-
+> [http://gcc.gnu.org/onlinedocs/cpp/Implementation-limits.html](http://gcc.gnu.org/onlinedocs/cpp/Implementation-limits.html)
 
 
 

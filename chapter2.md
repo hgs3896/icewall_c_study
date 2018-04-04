@@ -219,9 +219,23 @@ char 형은 \(미국인 기준\) 문자 하나를 저장할 수 있는 형식입
 
 > char : Character\(문자\)라는 의미에서 나온 형식 이름입니다.
 
+문자형 상수는 'x', '5', 'K', '\n'로 표현합니다.
+
+```
+char newline;    // 선언
+newline = '\n';  // 할당
+```
+
 int 형은 적당한 범위의 정수 하나를 저장할 수 있는 형식입니다.
 
 > int : Integer\(정수\)라는 의미에서 나온 형식 이름입니다.
+
+정수형 상수는 5\(십진수\), 033\(8진수\), -100\(음수, 10진수\), 0x1F\(16진수\)로 표현합니다.
+
+```
+int number;    // 선언
+number = 1;    // 할당
+```
 
 float 형은 적당한 범위의 부동 소수\(유한 소수\)를 저장할 수 있는 형식입니다.
 
@@ -239,7 +253,13 @@ double 형은 float형 보다 더 넓은 범위의 부동 소수\(유한 소수\
 
 ---
 
-**이제 자료형에 맞춰 printf로 변수를 출력하는 법을 알아보자.**
+printf 함수 : print a formatted text
+
+> 값 형식
+
+
+
+**이제 형식에 맞춰 printf로 변수를 출력하는 법을 알아보자.**
 
 ![](https://newrim.gitbooks.io/c-study_icewall/content/assets/자료형.JPG)
 
@@ -268,7 +288,7 @@ int main(void) {
 만약 내가 int형 으로 숫자를 입력 받고 싶다면,
 
 ```
-#include<stdio.h>
+#include <stdio.h>
 
 int main(void) {
     int age;
@@ -328,6 +348,8 @@ C언어의 철학\(Spirit of C\)
 >
 > * Make it fast, even if it is not guaranteed to be portable.  
 >   \(스마트폰에선 설령 못 쓸 프로그램이 될 지라도, 슈퍼 컴퓨터에선 성능 뽕 제대로 맞아보자.\)
+
+---
 
 References
 

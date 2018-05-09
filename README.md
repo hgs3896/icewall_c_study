@@ -8,11 +8,15 @@
 
 ---
 
-#### [1주차 : **프로그래밍과 프로그래밍 언어의 발전, **C언어 vs Python, C언어로 된 프로그램 만들기](/chapter1.md "Chapter 1")
+#### [1주차 : 프로그래밍과 프로그래밍 언어의 발전, C언어 vs Python, C언어로 된 프로그램 만들기](/chapter1.md "Chapter 1")
 
 #### [2주차 : main 함수, 컴파일, 변수와 상수, 형식, 수식과 연산자, 여러가지 문장, 표준 입출력, Spirits of C](/chapter2.md)
 
-[3주차 : printf함수와 문자열 서식, if, switch, 비트 연산자](/chapter3.md "3주차")
+#### [3주차 : printf함수와 문자열 서식, if, switch, 비트 연산자](/chapter3.md "3주차")
+
+#### [**4주차 : 조건문 + 반복문, 함수, 재귀호출식, 반복문 활용 : 별찍기**](/chapter4.md)
+
+#### 
 
 
 

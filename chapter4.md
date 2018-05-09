@@ -84,17 +84,22 @@ int main(int argc, char * argv[]) {
 
 먼저 반복문부터 살펴보자. 반복문의 기본적인 형식은 다음과 같다.
 
-for\(init-expression; condition-expression; loop-expression\){
+init-expression : 초기화 수식
+
+condition-expression : 조건 수식
+
+loop-expression : 반복을 위한 수식\(주로 증감식\)
 
 ```
-statement;
+for(init-expression; condition-expression; loop-expression)
+    statement
 ```
-
-}
 
 ###### 
 
-반복문이나 조건문에서 실행할 구문이 한 문장인 경우는 위처럼 굳이 {}로 묶어주지 않아도 된다.
+statement는 하나의 문장이지만 중괄호로 묶은 { statement } 는 여러 문장을 하나의 문장으로 묶어주기에 여러 문장의 내용을 반복할 수도 있다.
+
+
 
 실행순서는
 

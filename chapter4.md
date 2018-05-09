@@ -236,15 +236,11 @@ while문은 조건에 부합하지 않으면,아예 statement를 실행하지 �
 
 함수의 표현 방법은
 
-
-
 ```
 return_type function_name(parameters) {
-        definition
+    definition
 }
 ```
-
-
 
 이다. 위의 형식에서 definition이 빠진
 
@@ -262,40 +258,29 @@ return\_type function\_name\(parameters\) { definition }
 #include <stdio.h>
 void gugudan(int dan);
 int isThreeMultiple(int number) {
-if (number % 3 == 0) {
-
-    return 1;
-
-}
-
-else {
-
-        return 0;
-
-    }
+	if (number % 3 == 0) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 int main(int argc, char * argv[]) {
-    int dan;
+	int dan;
 
-    for (dan = 2; dan <= 9; dan++) {
-
-        if (isThreeMultiple(dan)) {
-
-            gugudan(dan);
-
-        }
-
-    }
+	for (dan = 2; dan <= 9; dan++) {
+		if (isThreeMultiple(dan)) {
+			gugudan(dan);
+		}
+	}
 }
+
 void gugudan(int dan) {
-    int i;
+	int i;
 
-    for (i = 1; i <= 9; i++) {
-
-        printf("%d x %d = %d\n", dan, i, dan*i);
-
-    }
+	for (i = 1; i <= 9; i++) {
+		printf("%d x %d = %d\n", dan, i, dan * i);
+	}
 }
 ```
 
@@ -315,26 +300,27 @@ function\_name은 함수 이름이다. 말 그대로 이름을 지어주면 된�
 
 ```
 #include <stdio.h>
+
 int thisIsGlobal = 2;
+
 void function(int parameter) {
-int thisIsLocal2 = 20;
+	int thisIsLocal2 = 20;
 
-printf("%d is global variable\n", thisIsGlobal);
+	printf("%d is global variable\n", thisIsGlobal);
 
-printf("%d is parameter\n", parameter);
+	printf("%d is parameter\n", parameter);
 
-printf("%d is local variable\n", thisIsLocal2);
+	printf("%d is local variable\n", thisIsLocal2);
 
-
-
-//printf("%d is local variable\n", thisIsLocal);
+	// printf("%d is local variable\n", thisIsLocal);
 }
+
 int main(int argc, char * argv[]) {
-int thisIsLocal = 10;
+	int thisIsLocal = 10;
 
-function(thisIsLocal);
+	function(thisIsLocal);
 
-return 0;
+	return 0;
 }
 ```
 
@@ -347,26 +333,21 @@ return 0;
 ```
 #include <stdio.h>
 int factorial(int n) {
-if (n == 0) {
-
-    return 1;
-
-}
-
-else {
-
-    return n * factorial(n - 1);
-
-}
+	if (n == 0) {
+		return 1;
+	}
+	else {
+		return n * factorial(n - 1);
+	}
 }
 int main(int argc, char * argv[]) {
-int number;
+	int number;
 
-scanf("%d", &number);
+	scanf("%d", &number);
 
-printf("factorial result of %d : %d\n", number, factorial(number));
+	printf("factorial result of %d : %d\n", number, factorial(number));
 
-return 0;
+	return 0;
 }
 ```
 

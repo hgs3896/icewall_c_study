@@ -133,3 +133,11 @@ character라는 구조체를 만들고 x,y 값을 입력 받으면 character 구
 
 -&gt; 이 과제는 필수이니 모두 저한테 개인적으로 제출하시기 바랍니다!
 
+
+
+http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html
+
+http://blog.llvm.org/2011/05/what-every-c-programmer-should-know\_14.html
+
+http://blog.llvm.org/2011/05/what-every-c-programmer-should-know\_21.html
+

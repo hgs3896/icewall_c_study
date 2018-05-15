@@ -163,7 +163,7 @@ char const * const str = "hello"; // const char * const str = "hello";와 동일
 
 특히, C언어의 string 라이브러리를 이용하면 여러가지 문자열 함수를 사용할 수 있습니다.
 
-#### 
+
 
 _**이제 문자열 관련 함수를 배우자.**_
 

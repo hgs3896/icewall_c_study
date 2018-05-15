@@ -161,8 +161,6 @@ char const * const str = "hello"; // const char * const str = "hello";와 동일
 
 하지만 아직 안 배운 내용이니 그러려니 합시다.
 
-
-
 특히, C언어의 string 라이브러리를 이용하면 여러가지 문자열 함수를 사용할 수 있습니다.
 
 #### 
